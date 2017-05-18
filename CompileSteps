@@ -80,6 +80,27 @@ esac
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
 echo  "Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds."
+EXTRACT DECONFIG FILE
+In kernel-msm-MMI-MPJ24.139 folder go to scripts folder 
+Paste boot.img in the same folder  which was retrieved from android (by the steps given below)
+Open terminal here and type     “./extract-ikconfig boot-and-dev.img > motog4_defconfig”
+Deconfig file for your android  is motog4_defconfig now in scripts folder
+Run script 
+RETRIEVE boot.img
+Use adb tools to retrieve the desired boot-from-android-device.img, after that, Use Root Explorer to copy the file, so that we can copy the file to computer through MTP:
+;use the following commands to found the boot partition,note:7824900.sdhci is different on different android device
+$ adb shell
+$ su
+$ ls -l /dev/block/platform/
+;now we know the device platform is 7824900.sdhci
+$ ls -l /dev/block/platform/7824900.sdhci/by-name
+; now we know the boot partition is cat mmcblk0p14 by [boot -> /dev/block/mmcblk0p14]
+use the following command to retrieve the boot.img
+$ su
+$ cat /dev/block/mmcblk0p14 > /sdcard/boot-from-android-device.img
+$ chmod 0666 /sdcard/boot-from-android-device.img
+$ adb pull /storage/emulated/0/Download/boot-and-dev.img /home/name/Desktop/
+
 FLASH TUTORIAL
 Copy all ".ko" modules and zImage binary to one output folder
 Open a terminal
