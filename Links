@@ -1,0 +1,5 @@
+Kernel :- https://github.com/MotorolaMobilityLLC/kernel-msm/releases/tag/MMI-MPJ24.139
+	  https://github.com/MotorolaMobilityLLC/motorola-kernel/tree/marshmallow-6.0.0-release
+merge above two repository according to their directory structure
+Toolchain :- https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8
+unpacking and repacking :- https://forum.xda-developers.com/attachment.php?attachmentid=4134218&d=1493639940
