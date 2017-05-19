@@ -271,7 +271,7 @@ make[2]: *** [drivers/md/dm-req-crypt.o] Error 1
 scripts/Makefile.build:455: recipe for target 'drivers/md' failed
 make[1]: *** [drivers/md] Error 2
 
-
+Solution:
 Remove this from file drivers/md/dm-req-crypt.c
 if ((rq_data_dir(clone) != READ) &&
 			 (rq_data_dir(clone) != WRITE)) {
